@@ -116,19 +116,21 @@ a:focus {
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
 .skip {
-  position: absolute;
+  position: relative;
   top: -40px;
+  display: none;
   left: 0;
 }
 
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
-.skip:focus {
+input:focus + .skip {
   top: 10px; 
+  display: block;
 }
 
 /* Step 3: Write selector/rule property to style all elements when in focus*/
 *:focus {
-  border: 2px solid #000;
+  border: 2px solid black;
 }
 
 
@@ -146,9 +148,10 @@ a:focus {
 first div in the grid  and place it in the grid. */
 .container > :first-child{
   grid-column: 1 / span 3;
+  background-attachment: fixed; 
   background-image: url("../images/header.jpg"); 
   background-repeat: no-repeat; 
-  /* background-attachment: fixed;  */
+  
 }
 
 
