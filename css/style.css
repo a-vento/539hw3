@@ -115,19 +115,16 @@ a:focus {
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
 .skip a {
-  position: relative;
-  top: 40px;
+  position: absolute;
+  top: -40px;
   left: 0;
-  display: none;
 }
 
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
 .skip a:focus {
   /* this is wrong */
-  position: relative;
-  top: -20px; 
-  display: block;
-  color: blue;
+  position: absolute;
+  top: 20px; 
 }
 
 /* Step 3: Write selector/rule property to style all elements when in focus*/
@@ -147,12 +144,12 @@ a:focus {
 
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
-.container > div:first-child{
+.container > div:first-child {
   grid-column: 1 / -1;
   background-image: url("../images/header.jpg"); 
   background-repeat: no-repeat; 
-  background-attachment: fixed; 
-  overflow: clip;
+  /* background-attachment: fixed;  */
+  /* overflow: clip; */
 }
 
 
@@ -165,6 +162,7 @@ first div in the grid  and place it in the grid. */
       .clients, 
       .contact {
         grid-column: 2 / 3; 
+        grid-row: 2; 
       }
       .about-image,
       .about {
@@ -186,9 +184,9 @@ first div in the grid  and place it in the grid. */
       .method-image,
       .clients-image,
       .contact-image {
-        grid-column: 1 / -1;;
+        grid-column: 1 / -1;
         max-height: 600px;
-        overflow: clip;
+        /* overflow: clip; */
       }
       
       /* Selector for the fourth element in the grid */
@@ -200,10 +198,9 @@ first div in the grid  and place it in the grid. */
 
  /* Step 8: Write the selector/rule property to style the .text-block class. */
 .text-block {
-  margin: auto;
   text-align: center;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
+  justify-self: center;
 }
 
 /* Add your media query here */
@@ -221,15 +218,17 @@ first div in the grid  and place it in the grid. */
 
   /* Step 10: Write the selector/rule property to update the .container class */
   .container {
-    display: grid;
     grid-template-columns: 50px auto 500px auto 50px;
-    align-items: center;
+    grid-gap: 15px;
+
+
+    /* align-items: center;
     justify-content: center;
     background-size: contain;
     background-position-y: center; 
     position: relative; 
     overflow: clip;
-    margin: auto;
+    margin: auto; */
   }
 
   /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
@@ -250,6 +249,6 @@ first div in the grid  and place it in the grid. */
   /* Step 13:Write the selector/rule property to update the .text-block class */
     .text-block {
       max-height: 250px;
-      overflow: auto; 
+      overflow: scroll; 
     }
 } 
